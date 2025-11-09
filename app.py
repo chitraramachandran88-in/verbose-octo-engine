@@ -1,5 +1,5 @@
-import streamlit as st
 from openai import OpenAI
+import streamlit as st
 
 # Initialize OpenAI client
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
@@ -19,7 +19,7 @@ if st.button("Summarize"):
         with st.spinner("Generating summary..."):
             prompt = f"Summarize the following text in 4-5 concise sentences:\n\n{text_input}"
             response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
+                model="gpt-4o-mini",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.5,
             )
